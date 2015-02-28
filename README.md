@@ -1,4 +1,4 @@
-kernel-btp
+kernel
 ==========
 
 Final B-Tech Project under Prof. D Janakiram, IIT Madras
