@@ -16,27 +16,17 @@ struct autogroup {
 	int			nice;
 };
 
-#ifdef __cplusplus
-extern "C" void autogroup_init(struct task_struct *init_task);
-extern "C" void autogroup_free(struct task_group *tg);
-extern "C" bool task_wants_autogroup(struct task_struct *p, struct task_group *tg);
-
-#else
 extern void autogroup_init(struct task_struct *init_task);
 extern void autogroup_free(struct task_group *tg);
-extern bool task_wants_autogroup(struct task_struct *p, struct task_group *tg);
-
-#endif
-
-
 
 static inline bool task_group_is_autogroup(struct task_group *tg)
 {
 	return !!tg->autogroup;
 }
 
-static inline 
-struct task_group *
+extern bool task_wants_autogroup(struct task_struct *p, struct task_group *tg);
+
+static inline struct task_group *
 autogroup_task_group(struct task_struct *p, struct task_group *tg)
 {
 	int enabled = ACCESS_ONCE(sysctl_sched_autogroup_enabled);

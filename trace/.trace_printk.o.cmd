@@ -1,4 +1,4 @@
-cmd_kernel/trace/trace_printk.o := gcc -Wp,-MD,kernel/trace/.trace_printk.o.d  -nostdinc -isystem /opt/gccbin/bin/../lib/gcc/i686-pc-linux-gnu/4.4.5/include -I/home/abhijith/project/code/arch/x86/include -Iarch/x86/include/generated  -Iinclude -I/home/abhijith/project/code/arch/x86/include/uapi -Iarch/x86/include/generated/uapi -I/home/abhijith/project/code/include/uapi -Iinclude/generated/uapi -include /home/abhijith/project/code/include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -mno-mmx -mno-sse -fno-pic -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -Wframe-larger-than=1024 -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack   -fno-tree-scev-cprop -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(trace_printk)"  -D"KBUILD_MODNAME=KBUILD_STR(trace_printk)" -c -o kernel/trace/.tmp_trace_printk.o kernel/trace/trace_printk.c
+cmd_kernel/trace/trace_printk.o := gcc -Wp,-MD,kernel/trace/.trace_printk.o.d  -nostdinc -isystem /opt/gccbin/bin/../lib/gcc/i686-pc-linux-gnu/4.4.5/include -I/home/bossmool/mool-3.12.23-32-core-working/arch/x86/include -Iarch/x86/include/generated  -Iinclude -I/home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi -Iarch/x86/include/generated/uapi -I/home/bossmool/mool-3.12.23-32-core-working/include/uapi -Iinclude/generated/uapi -include /home/bossmool/mool-3.12.23-32-core-working/include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -mno-mmx -mno-sse -fno-pic -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -Wframe-larger-than=1024 -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack   -fno-tree-scev-cprop -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(trace_printk)"  -D"KBUILD_MODNAME=KBUILD_STR(trace_printk)" -c -o kernel/trace/.tmp_trace_printk.o kernel/trace/trace_printk.c
 
 source_kernel/trace/trace_printk.o := kernel/trace/trace_printk.c
 
@@ -34,7 +34,7 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/optimize/inlining.h) \
   include/linux/compiler-gcc4.h \
     $(wildcard include/config/arch/use/builtin/bswap.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/posix_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/posix_types.h \
     $(wildcard include/config/x86/32.h) \
   include/asm/posix_types_32.h \
   include/asm-generic/posix_types.h \
@@ -42,13 +42,13 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/binary/printf.h) \
   /opt/gccbin/bin/../lib/gcc/i686-pc-linux-gnu/4.4.5/include/stdarg.h \
   include/uapi/linux/string.h \
-  /home/abhijith/project/code/arch/x86/include/asm/string.h \
-  /home/abhijith/project/code/arch/x86/include/asm/string_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/string.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/string_32.h \
     $(wildcard include/config/x86/use/3dnow.h) \
     $(wildcard include/config/kmemcheck.h) \
   include/linux/bug.h \
     $(wildcard include/config/generic/bug.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/bug.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/bug.h \
     $(wildcard include/config/bug.h) \
     $(wildcard include/config/debug/bugverbose.h) \
   include/asm-generic/bug.h \
@@ -67,60 +67,60 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/have/underscore/symbol/prefix.h) \
     $(wildcard include/config/modversions.h) \
     $(wildcard include/config/unused/symbols.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/linkage.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/linkage.h \
     $(wildcard include/config/x86/64.h) \
     $(wildcard include/config/x86/alignment/16.h) \
   include/linux/bitops.h \
-  /home/abhijith/project/code/arch/x86/include/asm/bitops.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/bitops.h \
     $(wildcard include/config/x86/cmov.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/alternative.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/alternative.h \
     $(wildcard include/config/paravirt.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/asm.h \
-  /home/abhijith/project/code/arch/x86/include/asm/ptrace.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/asm.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/ptrace.h \
     $(wildcard include/config/x86/debugctlmsr.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/segment.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/segment.h \
     $(wildcard include/config/cc/stackprotector.h) \
     $(wildcard include/config/x86/32/lazy/gs.h) \
   include/linux/const.h \
-  /home/abhijith/project/code/arch/x86/include/asm/page_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/page_types.h \
     $(wildcard include/config/physical/start.h) \
     $(wildcard include/config/physical/align.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/page_32_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/page_32_types.h \
     $(wildcard include/config/highmem4g.h) \
     $(wildcard include/config/highmem64g.h) \
     $(wildcard include/config/page/offset.h) \
     $(wildcard include/config/x86/pae.h) \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/ptrace.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/ptrace.h \
   include/asm/ptrace-abi.h \
-  /home/abhijith/project/code/arch/x86/include/asm/processor-flags.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/processor-flags.h \
     $(wildcard include/config/vm86.h) \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/processor-flags.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/processor-flags.h \
   include/linux/init.h \
     $(wildcard include/config/broken/rodata.h) \
     $(wildcard include/config/cxx/runtime.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/paravirt_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/paravirt_types.h \
     $(wildcard include/config/x86/local/apic.h) \
     $(wildcard include/config/paravirt/debug.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/desc_defs.h \
-  /home/abhijith/project/code/arch/x86/include/asm/kmap_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/desc_defs.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/kmap_types.h \
     $(wildcard include/config/debug/highmem.h) \
   include/asm-generic/kmap_types.h \
-  /home/abhijith/project/code/arch/x86/include/asm/pgtable_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pgtable_types.h \
     $(wildcard include/config/mem/soft/dirty.h) \
     $(wildcard include/config/compat/vdso.h) \
     $(wildcard include/config/proc/fs.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/pgtable_32_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pgtable_32_types.h \
     $(wildcard include/config/highmem.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/pgtable-3level_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pgtable-3level_types.h \
   include/asm-generic/pgtable-nopud.h \
-  /home/abhijith/project/code/arch/x86/include/asm/spinlock_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/spinlock_types.h \
     $(wildcard include/config/paravirt/spinlocks.h) \
     $(wildcard include/config/nr/cpus.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/rwlock.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/rwlock.h \
   include/asm-generic/ptrace.h \
-  /home/abhijith/project/code/arch/x86/include/asm/cpufeature.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/cpufeature.h \
     $(wildcard include/config/x86/debug/static/cpu/has.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/required-features.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/required-features.h \
     $(wildcard include/config/x86/minimum/cpu/family.h) \
     $(wildcard include/config/math/emulation.h) \
     $(wildcard include/config/x86/cmpxchg64.h) \
@@ -130,7 +130,7 @@ deps_kernel/trace/trace_printk.o := \
   include/asm-generic/bitops/find.h \
     $(wildcard include/config/generic/find/first/bit.h) \
   include/asm-generic/bitops/sched.h \
-  /home/abhijith/project/code/arch/x86/include/asm/arch_hweight.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/arch_hweight.h \
   include/asm-generic/bitops/const_hweight.h \
   include/asm-generic/bitops/le.h \
   include/asm/byteorder.h \
@@ -158,13 +158,13 @@ deps_kernel/trace/trace_printk.o := \
   include/asm-generic/errno-base.h \
   include/uapi/linux/kernel.h \
   include/linux/sysinfo.h \
-  /home/abhijith/project/code/arch/x86/include/asm/div64.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/div64.h \
   include/linux/mutex.h \
     $(wildcard include/config/debug/mutexes.h) \
     $(wildcard include/config/mutex/spin/on/owner.h) \
     $(wildcard include/config/debug/lock/alloc.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/current.h \
-  /home/abhijith/project/code/arch/x86/include/asm/percpu.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/current.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/percpu.h \
     $(wildcard include/config/x86/64/smp.h) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/debug/preempt.h) \
@@ -189,18 +189,18 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/atomic.h \
     $(wildcard include/config/arch/has/atomic/or.h) \
     $(wildcard include/config/generic/atomic64.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/atomic.h \
-  /home/abhijith/project/code/arch/x86/include/asm/processor.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/atomic.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/processor.h \
     $(wildcard include/config/x86/vsmp.h) \
     $(wildcard include/config/m486.h) \
     $(wildcard include/config/xen.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/vm86.h \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/vm86.h \
-  /home/abhijith/project/code/arch/x86/include/asm/math_emu.h \
-  /home/abhijith/project/code/arch/x86/include/asm/sigcontext.h \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/sigcontext.h \
-  /home/abhijith/project/code/arch/x86/include/asm/page.h \
-  /home/abhijith/project/code/arch/x86/include/asm/page_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/vm86.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/vm86.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/math_emu.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/sigcontext.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/sigcontext.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/page.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/page_32.h \
     $(wildcard include/config/hugetlb/page.h) \
     $(wildcard include/config/debug/virtual.h) \
     $(wildcard include/config/flatmem.h) \
@@ -211,29 +211,29 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/sparsemem/vmemmap.h) \
     $(wildcard include/config/sparsemem.h) \
   include/asm-generic/getorder.h \
-  /home/abhijith/project/code/arch/x86/include/asm/msr.h \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/msr.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/msr.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/msr.h \
   include/asm/msr-index.h \
   include/linux/ioctl.h \
   include/asm/ioctl.h \
   include/asm-generic/ioctl.h \
   include/uapi/asm-generic/ioctl.h \
-  /home/abhijith/project/code/arch/x86/include/asm/cpumask.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/cpumask.h \
   include/linux/cpumask.h \
     $(wildcard include/config/cpumask/offstack.h) \
     $(wildcard include/config/hotplug/cpu.h) \
     $(wildcard include/config/debug/per/cpu/maps.h) \
     $(wildcard include/config/disable/obsolete/cpumask/functions.h) \
   include/linux/bitmap.h \
-  /home/abhijith/project/code/arch/x86/include/asm/paravirt.h \
-  /home/abhijith/project/code/arch/x86/include/asm/nops.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/paravirt.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/nops.h \
     $(wildcard include/config/mk7.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/special_insns.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/special_insns.h \
   include/linux/personality.h \
   include/uapi/linux/personality.h \
   include/linux/cache.h \
     $(wildcard include/config/arch/has/cache/line/size.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/cache.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/cache.h \
     $(wildcard include/config/x86/l1/cache/shift.h) \
     $(wildcard include/config/x86/internode/cache/shift.h) \
   include/linux/math64.h \
@@ -242,10 +242,10 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/irqsoff/tracer.h) \
     $(wildcard include/config/preempt/tracer.h) \
     $(wildcard include/config/trace/irqflags/support.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/irqflags.h \
-  /home/abhijith/project/code/arch/x86/include/asm/cmpxchg.h \
-  /home/abhijith/project/code/arch/x86/include/asm/cmpxchg_32.h \
-  /home/abhijith/project/code/arch/x86/include/asm/atomic64_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/irqflags.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/cmpxchg.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/cmpxchg_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/atomic64_32.h \
   include/asm-generic/atomic-long.h \
   include/linux/nodemask.h \
     $(wildcard include/config/movable/node.h) \
@@ -278,13 +278,13 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/thread_info.h \
     $(wildcard include/config/compat.h) \
     $(wildcard include/config/debug/stack/usage.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/thread_info.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/thread_info.h \
     $(wildcard include/config/ia32/emulation.h) \
   include/linux/bottom_half.h \
-  /home/abhijith/project/code/arch/x86/include/asm/barrier.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/barrier.h \
     $(wildcard include/config/x86/ppro/fence.h) \
     $(wildcard include/config/x86/oostore.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/spinlock.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/spinlock.h \
   include/linux/jump_label.h \
     $(wildcard include/config/jump/label.h) \
   include/linux/rwlock.h \
@@ -347,7 +347,7 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/cmpxchg/lockref.h) \
   include/linux/path.h \
   include/linux/stat.h \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/stat.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/stat.h \
   include/uapi/linux/stat.h \
   include/linux/time.h \
     $(wildcard include/config/arch/uses/gettimeoffset.h) \
@@ -364,29 +364,29 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/capability.h \
   include/uapi/linux/capability.h \
   include/linux/semaphore.h \
-  include/linux/fiemap.h \
+  /home/bossmool/mool-3.12.23-32-core-working/include/uapi/linux/fiemap.h \
   include/linux/shrinker.h \
   include/linux/migrate_mode.h \
   include/linux/percpu-rwsem.h \
   include/linux/rwsem.h \
     $(wildcard include/config/rwsem/generic/spinlock.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/rwsem.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/rwsem.h \
   include/linux/percpu.h \
     $(wildcard include/config/need/per/cpu/embed/first/chunk.h) \
     $(wildcard include/config/need/per/cpu/page/first/chunk.h) \
   include/linux/smp.h \
     $(wildcard include/config/use/generic/smp/helpers.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/smp.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/smp.h \
     $(wildcard include/config/x86/io/apic.h) \
     $(wildcard include/config/x86/32/smp.h) \
     $(wildcard include/config/debug/nmi/selftest.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/mpspec.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/mpspec.h \
     $(wildcard include/config/x86/numaq.h) \
     $(wildcard include/config/eisa.h) \
     $(wildcard include/config/x86/mpparse.h) \
     $(wildcard include/config/acpi.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/mpspec_def.h \
-  /home/abhijith/project/code/arch/x86/include/asm/x86_init.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/mpspec_def.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/x86_init.h \
   include/asm/bootparam.h \
   include/linux/screen_info.h \
   include/uapi/linux/screen_info.h \
@@ -394,21 +394,21 @@ deps_kernel/trace/trace_printk.o := \
   include/uapi/linux/apm_bios.h \
   include/linux/edd.h \
   include/uapi/linux/edd.h \
-  /home/abhijith/project/code/arch/x86/include/asm/e820.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/e820.h \
     $(wildcard include/config/efi.h) \
     $(wildcard include/config/hibernation.h) \
     $(wildcard include/config/memtest.h) \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/e820.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/e820.h \
     $(wildcard include/config/intel/txt.h) \
   include/linux/ioport.h \
     $(wildcard include/config/memory/hotremove.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/ist.h \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/ist.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/ist.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/ist.h \
   include/video/edid.h \
     $(wildcard include/config/x86.h) \
   include/uapi/video/edid.h \
-  /home/abhijith/project/code/arch/x86/include/asm/apicdef.h \
-  /home/abhijith/project/code/arch/x86/include/asm/apic.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/apicdef.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/apic.h \
     $(wildcard include/config/x86/x2apic.h) \
   include/linux/pm.h \
     $(wildcard include/config/vt/console/sleep.h) \
@@ -433,29 +433,29 @@ deps_kernel/trace/trace_printk.o := \
   include/asm-generic/param.h \
     $(wildcard include/config/hz.h) \
   include/uapi/asm-generic/param.h \
-  /home/abhijith/project/code/arch/x86/include/asm/timex.h \
-  /home/abhijith/project/code/arch/x86/include/asm/tsc.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/timex.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/tsc.h \
     $(wildcard include/config/x86/tsc.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/fixmap.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/fixmap.h \
     $(wildcard include/config/paravirt/clock.h) \
     $(wildcard include/config/provide/ohci1394/dma/init.h) \
     $(wildcard include/config/x86/visws/apic.h) \
     $(wildcard include/config/pci/mmconfig.h) \
     $(wildcard include/config/x86/intel/mid.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/acpi.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/acpi.h \
     $(wildcard include/config/acpi/numa.h) \
   include/acpi/pdc_intel.h \
-  /home/abhijith/project/code/arch/x86/include/asm/numa.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/numa.h \
     $(wildcard include/config/numa/emu.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/topology.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/topology.h \
     $(wildcard include/config/x86/ht.h) \
   include/asm-generic/topology.h \
     $(wildcard include/config/have/memoryless/nodes.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/numa_32.h \
-  /home/abhijith/project/code/arch/x86/include/asm/mmu.h \
-  /home/abhijith/project/code/arch/x86/include/asm/realmode.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/numa_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/mmu.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/realmode.h \
     $(wildcard include/config/acpi/sleep.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/io.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/io.h \
     $(wildcard include/config/mtrr.h) \
   include/asm-generic/iomap.h \
     $(wildcard include/config/has/ioport.h) \
@@ -469,29 +469,29 @@ deps_kernel/trace/trace_printk.o := \
   include/xen/xen.h \
     $(wildcard include/config/xen/dom0.h) \
   include/xen/interface/xen.h \
-  /home/abhijith/project/code/arch/x86/include/asm/xen/interface.h \
-  /home/abhijith/project/code/arch/x86/include/asm/xen/interface_32.h \
-  /home/abhijith/project/code/arch/x86/include/asm/pvclock-abi.h \
-  /home/abhijith/project/code/arch/x86/include/asm/xen/hypervisor.h \
-  /home/abhijith/project/code/arch/x86/include/asm/pvclock.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/xen/interface.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/xen/interface_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pvclock-abi.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/xen/hypervisor.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pvclock.h \
   include/linux/clocksource.h \
     $(wildcard include/config/arch/clocksource/data.h) \
     $(wildcard include/config/clocksource/watchdog.h) \
     $(wildcard include/config/clksrc/of.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/idle.h \
-  /home/abhijith/project/code/arch/x86/include/asm/io_apic.h \
-  /home/abhijith/project/code/arch/x86/include/asm/irq_vectors.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/idle.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/io_apic.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/have/kvm.h) \
   include/linux/pfn.h \
   include/linux/blk_types.h \
     $(wildcard include/config/blk/cgroup.h) \
     $(wildcard include/config/blk/dev/integrity.h) \
   include/uapi/linux/fs.h \
-  include/linux/limits.h \
+  /home/bossmool/mool-3.12.23-32-core-working/include/uapi/linux/limits.h \
   include/linux/quota.h \
     $(wildcard include/config/quota/netlink/interface.h) \
   include/linux/percpu_counter.h \
-  include/linux/dqblk_xfs.h \
+  /home/bossmool/mool-3.12.23-32-core-working/include/uapi/linux/dqblk_xfs.h \
   include/linux/dqblk_v1.h \
   include/linux/dqblk_v2.h \
   include/linux/dqblk_qtree.h \
@@ -500,14 +500,14 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/nfs_fs_i.h \
   include/linux/fcntl.h \
   include/uapi/linux/fcntl.h \
-  /home/abhijith/project/code/arch/x86/include/asm/fcntl.h \
-  include/asm-generic/fcntl.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/fcntl.h \
+  /home/bossmool/mool-3.12.23-32-core-working/include/uapi/asm-generic/fcntl.h \
   include/linux/uaccess.h \
-  /home/abhijith/project/code/arch/x86/include/asm/uaccess.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/uaccess.h \
     $(wildcard include/config/x86/intel/usercopy.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/smap.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/smap.h \
     $(wildcard include/config/x86/smap.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/uaccess_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/uaccess_32.h \
     $(wildcard include/config/debug/strict/user/copy/checks.h) \
   include/linux/ftrace.h \
     $(wildcard include/config/have/function/trace/mcount/test.h) \
@@ -519,7 +519,7 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/frame/pointer.h) \
     $(wildcard include/config/ftrace/syscalls.h) \
   include/linux/trace_clock.h \
-  /home/abhijith/project/code/arch/x86/include/asm/trace_clock.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/trace_clock.h \
   include/linux/kallsyms.h \
     $(wildcard include/config/kallsyms.h) \
   include/linux/ptrace.h \
@@ -584,12 +584,12 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/page/debug/something/else.h) \
   include/linux/uprobes.h \
     $(wildcard include/config/arch/supports/uprobes.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/uprobes.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/uprobes.h \
   include/linux/notifier.h \
   include/linux/srcu.h \
   include/linux/page-flags-layout.h \
   include/generated/bounds.h \
-  /home/abhijith/project/code/arch/x86/include/asm/cputime.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/cputime.h \
   include/asm-generic/cputime.h \
     $(wildcard include/config/virt/cpu/accounting.h) \
   include/asm-generic/cputime_jiffies.h \
@@ -603,8 +603,8 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/signal.h \
     $(wildcard include/config/old/sigaction.h) \
   include/uapi/linux/signal.h \
-  /home/abhijith/project/code/arch/x86/include/asm/signal.h \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/signal.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/signal.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/signal.h \
   include/asm-generic/signal-defs.h \
   include/asm/siginfo.h \
   include/asm-generic/siginfo.h \
@@ -643,13 +643,13 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/seccomp.h) \
     $(wildcard include/config/seccomp/filter.h) \
   include/uapi/linux/seccomp.h \
-  /home/abhijith/project/code/arch/x86/include/asm/seccomp.h \
-  /home/abhijith/project/code/arch/x86/include/asm/seccomp_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/seccomp.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/seccomp_32.h \
   include/linux/unistd.h \
-  /home/abhijith/project/code/arch/x86/include/asm/unistd.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/unistd.h \
     $(wildcard include/config/x86/x32/abi.h) \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/unistd.h \
-  /home/abhijith/project/code/arch/x86/include/asm/unistd_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/unistd.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/unistd_32.h \
   include/linux/rtmutex.h \
     $(wildcard include/config/debug/rt/mutexes.h) \
   include/linux/plist.h \
@@ -678,7 +678,7 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/mmdebug.h \
     $(wildcard include/config/debug/vm.h) \
   include/uapi/linux/ptrace.h \
-  /home/abhijith/project/code/arch/x86/include/asm/ftrace.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/ftrace.h \
   include/linux/module.h \
     $(wildcard include/config/module/sig.h) \
     $(wildcard include/config/tracepoints.h) \
@@ -688,14 +688,14 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/debug/set/module/ronx.h) \
   include/linux/kmod.h \
   include/linux/elf.h \
-  /home/abhijith/project/code/arch/x86/include/asm/elf.h \
-  /home/abhijith/project/code/arch/x86/include/asm/user.h \
-  /home/abhijith/project/code/arch/x86/include/asm/user_32.h \
-  /home/abhijith/project/code/arch/x86/include/asm/vdso.h \
-  /home/abhijith/project/code/arch/x86/include/asm/desc.h \
-  /home/abhijith/project/code/arch/x86/include/asm/ldt.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/elf.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/user.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/user_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/vdso.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/desc.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/ldt.h \
   include/uapi/linux/elf.h \
-  include/linux/elf-em.h \
+  /home/bossmool/mool-3.12.23-32-core-working/include/uapi/linux/elf-em.h \
   include/linux/kobject.h \
     $(wildcard include/config/debug/kobject/release.h) \
   include/linux/sysfs.h \
@@ -707,7 +707,7 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/ppc64.h) \
   include/linux/tracepoint.h \
   include/linux/static_key.h \
-  /home/abhijith/project/code/arch/x86/include/asm/module.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/module.h \
     $(wildcard include/config/m586.h) \
     $(wildcard include/config/m586tsc.h) \
     $(wildcard include/config/m586mmx.h) \
@@ -743,8 +743,7 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/debug/slab.h) \
   include/linux/kmemleak.h \
     $(wildcard include/config/debug/kmemleak.h) \
-  include/linux/slub_def.h \
-    $(wildcard include/config/slub/stats.h) \
+  include/linux/slab_def.h \
     $(wildcard include/config/memcg/kmem.h) \
   kernel/trace/trace.h \
     $(wildcard include/config/tracer/max/trace.h) \
@@ -766,10 +765,10 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/debug_locks.h \
     $(wildcard include/config/debug/locking/api/selftests.h) \
   include/linux/file.h \
-  /home/abhijith/project/code/arch/x86/include/asm/pgtable.h \
-  /home/abhijith/project/code/arch/x86/include/asm/pgtable_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pgtable.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pgtable_32.h \
     $(wildcard include/config/highpte.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/pgtable-3level.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pgtable-3level.h \
   include/asm-generic/pgtable.h \
     $(wildcard include/config/have/arch/soft/dirty.h) \
   include/linux/page-flags.h \
@@ -783,8 +782,8 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/vm_event_item.h \
   include/linux/poll.h \
   include/uapi/linux/poll.h \
-  /home/abhijith/project/code/arch/x86/include/asm/poll.h \
-  include/asm-generic/poll.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/poll.h \
+  /home/bossmool/mool-3.12.23-32-core-working/include/uapi/asm-generic/poll.h \
   include/linux/mmiotrace.h \
     $(wildcard include/config/mmiotrace.h) \
   include/linux/hw_breakpoint.h \
@@ -793,15 +792,15 @@ deps_kernel/trace/trace_printk.o := \
     $(wildcard include/config/cgroup/perf.h) \
     $(wildcard include/config/cpu/sup/intel.h) \
   include/uapi/linux/perf_event.h \
-  /home/abhijith/project/code/arch/x86/include/asm/perf_event.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/perf_event.h \
     $(wildcard include/config/cpu/sup/amd.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/stacktrace.h \
-  /home/abhijith/project/code/arch/x86/include/asm/local64.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/stacktrace.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/local64.h \
   include/asm-generic/local64.h \
-  /home/abhijith/project/code/arch/x86/include/asm/hw_breakpoint.h \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/hw_breakpoint.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/hw_breakpoint.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/hw_breakpoint.h \
   include/linux/kdebug.h \
-  /home/abhijith/project/code/arch/x86/include/asm/kdebug.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/kdebug.h \
     $(wildcard include/config/kexec.h) \
   include/linux/pid_namespace.h \
     $(wildcard include/config/pid/ns.h) \
@@ -821,7 +820,7 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/klist.h \
   include/linux/pinctrl/devinfo.h \
   include/linux/ratelimit.h \
-  /home/abhijith/project/code/arch/x86/include/asm/device.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/device.h \
     $(wildcard include/config/x86/dev/dma/ops.h) \
     $(wildcard include/config/intel/iommu.h) \
     $(wildcard include/config/amd/iommu.h) \
@@ -831,15 +830,15 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/jump_label_ratelimit.h \
   include/linux/perf_regs.h \
     $(wildcard include/config/have/perf/regs.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/perf_regs.h \
-  /home/abhijith/project/code/arch/x86/include/asm/local.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/perf_regs.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/local.h \
   include/uapi/linux/hw_breakpoint.h \
     $(wildcard include/config/have/mixed/breakpoints/regs.h) \
   include/linux/trace_seq.h \
   include/linux/ftrace_event.h \
   include/linux/hardirq.h \
   include/linux/preempt_mask.h \
-  /home/abhijith/project/code/arch/x86/include/asm/hardirq.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/hardirq.h \
     $(wildcard include/config/x86/thermal/vector.h) \
     $(wildcard include/config/x86/mce/threshold.h) \
   include/linux/irq.h \
@@ -848,16 +847,16 @@ deps_kernel/trace/trace_printk.o := \
   include/linux/irqreturn.h \
   include/linux/irqnr.h \
   include/uapi/linux/irqnr.h \
-  /home/abhijith/project/code/arch/x86/include/asm/irq.h \
-  /home/abhijith/project/code/arch/x86/include/asm/irq_regs.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/irq.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/irq_regs.h \
   include/linux/irqdesc.h \
     $(wildcard include/config/irq/preflow/fasteoi.h) \
     $(wildcard include/config/sparse/irq.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/hw_irq.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/hw_irq.h \
     $(wildcard include/config/irq/remap.h) \
   include/linux/profile.h \
     $(wildcard include/config/profiling.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/sections.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/sections.h \
     $(wildcard include/config/debug/rodata.h) \
   include/asm-generic/sections.h \
   include/linux/ftrace_irq.h \

@@ -89,6 +89,11 @@
 #define CREATE_TRACE_POINTS
 #include <trace/events/sched.h>
 
+//per-cpu variable for setting the cpus 
+DEFINE_PER_CPU(int, policy_checker);
+
+EXPORT_PER_CPU_SYMBOL_GPL(policy_checker); //CHANGED THIS
+
 void start_bandwidth_timer(struct hrtimer *period_timer, ktime_t period)
 {
 	unsigned long delta;
@@ -3263,6 +3268,8 @@ __setscheduler(struct rq *rq, struct task_struct *p, int policy, int prio)
 	else
 		p->sched_class = &fair_sched_class;
 	set_load_weight(p);
+	
+
 }
 
 /*
@@ -3488,6 +3495,8 @@ do_sched_setscheduler(pid_t pid, int policy, struct sched_param __user *param)
 	if (p != NULL)
 		retval = sched_setscheduler(p, policy, &lparam);
 	rcu_read_unlock();
+	
+	set_cpumask(p);
 
 	return retval;
 }
@@ -6397,6 +6406,11 @@ void __init sched_init(void)
 {
 	int i, j;
 	unsigned long alloc_size = 0, ptr;
+	
+	define_groups();
+
+	printk("muhaha\n");
+
 
 #ifdef CONFIG_FAIR_GROUP_SCHED
 	alloc_size += 2 * nr_cpu_ids * sizeof(void **);
@@ -7572,4 +7586,234 @@ void dump_cpu_task(int cpu)
 {
 	pr_info("Task dump for CPU %d:\n", cpu);
 	sched_show_task(cpu_curr(cpu));
+}
+
+//////////////////////////////////////////////////////////////// MY FUNCTIONS ////////////////////////////////////////////////////////////////
+
+/*
+ * Function used to define the group of cores
+ */
+void define_groups(void){
+
+	int i = 0;
+	int count = 0;
+
+	for_each_possible_cpu(i){
+
+		if(count < 16)
+		{
+			per_cpu(policy_checker, i) =  1;
+		}
+		else
+		{
+			per_cpu(policy_checker, i) =  0;
+		}
+		count++;
+	}
+
+	for_each_possible_cpu(i){
+		printk("The value of the per cpu variable is %d\n", per_cpu(policy_checker, i));
+	}
+	printk("NR_CPUS %d\n", NR_CPUS);
+
+
+
+
+
+
+	/*
+	bool policy_check_flag = false;
+	int i;
+
+	for_each_possible_cpu(i){
+
+		if(policy_check_flag){
+			policy_check_flag = false;
+			per_cpu(policy_checker, i) =  1;
+		}else{
+			policy_check_flag = true;
+			per_cpu(policy_checker, i ) = 0;
+		}
+	}
+	for_each_possible_cpu(i){
+		printk("The value of the per cpu variable is %d\n", per_cpu(policy_checker, i));
+	}
+	printk("NR_CPUS %d\n", NR_CPUS);
+*/
+}
+
+/*
+ * This will find the CPU mask form the policy_checker variable
+ */
+void find_cpu_mask(struct task_struct *p, cpumask_var_t in_mask){
+
+	int i;
+	cpumask_t mask;
+	//~ int flag = 0;
+//~ 
+	//~ if(p->pid % 2 == 0){
+		//~ for_each_possible_cpu(i){
+			//~ if(flag == 0 ){
+				//~ cpumask_set_cpu(i, in_mask);
+				//~ flag = 1;
+			//~ }else{
+				//~ flag = 0;
+				//~ cpumask_clear_cpu(i, in_mask);
+			//~ }
+		//~ }
+	//~ }else{
+		//~ for_each_possible_cpu(i){
+			//~ if(flag == 1 ){
+				//~ cpumask_set_cpu(i, in_mask);
+				//~ flag = 0;
+			//~ }else{
+				//~ flag = 1;
+				//~ cpumask_clear_cpu(i, in_mask);
+			//~ }
+		//~ }
+	//~ }
+
+	if (rt_prio(p->prio)){
+		for_each_possible_cpu(i)
+		{
+		if (per_cpu(policy_checker, i) == 1)
+			cpumask_set_cpu(i, in_mask);
+		else
+			cpumask_clear_cpu(i, in_mask);
+		}
+
+
+	}else{
+		for_each_possible_cpu(i){
+			if (per_cpu(policy_checker, i) == 0)
+				cpumask_set_cpu(i, in_mask);
+			else
+				cpumask_clear_cpu(i, in_mask);
+			}
+	}
+//~ //	printk("the value of the mask %d", mask);
+	return ;
+}
+
+
+
+
+/*
+ * Function to set the cpumask of the task struct  
+ *
+ */
+int set_cpumask(struct task_struct *p){
+	
+	int retval ;
+	if(p != NULL){
+
+		cpumask_var_t in_mask, new_mask, cpus_allowed;
+		int i;
+		char temp[10];
+
+		get_task_struct(p);
+
+		if (p->flags & PF_NO_SETAFFINITY) {
+			retval = -EINVAL;
+			goto out_put_task;
+		}
+
+		if (!alloc_cpumask_var(&cpus_allowed, GFP_KERNEL)) {
+			retval = -ENOMEM;
+			goto out_put_task;
+		}
+		if (!alloc_cpumask_var(&in_mask, GFP_KERNEL)) {
+			retval = -ENOMEM;
+			goto out_free_cpus_allowed;
+		}if (!alloc_cpumask_var(&new_mask, GFP_KERNEL)) {
+			retval = -ENOMEM;
+			goto out_put_free_cpus_allowed;
+		}
+
+		find_cpu_mask(p, in_mask);
+
+		cpumask_scnprintf(temp, sizeof(temp), in_mask);
+
+		printk("INMASK %s \n", temp);
+
+		retval = -EPERM;
+
+
+//		printk("the pid is %d ", p->pid);
+
+//		retval = security_task_setscheduler(p);
+//		if (retval)
+//			goto out_unlock;
+
+		cpuset_cpus_allowed(p, cpus_allowed); // what is this ?
+		cpumask_scnprintf(temp, sizeof(temp), cpus_allowed);
+
+//		printk("the cpuset_cpus_allowed %s ", temp);
+		cpumask_and(new_mask, in_mask, cpus_allowed);
+
+
+
+		cpumask_scnprintf(temp, sizeof(temp), new_mask);
+//		printk("The applied mask is %s \n", temp);
+
+
+
+
+	again:
+		printk("process creation ");
+		printk("static: %d normal: %d dynamic: %d ", p->static_prio, p->normal_prio, p->prio);
+		retval = set_cpus_allowed_ptr(p, new_mask);
+
+		if (retval != 0) {
+			cpuset_cpus_allowed(p, cpus_allowed);
+			if (!cpumask_subset(new_mask, cpus_allowed)) {
+				/*
+				 * We must have raced with a concurrent cpuset
+				 * update. Just reset the cpus_allowed to the
+				 * cpuset's cpus_allowed
+				 */
+				cpumask_copy(new_mask, cpus_allowed);
+				goto again;
+			}
+		}
+	out_unlock:
+		free_cpumask_var(new_mask);
+	out_put_free_cpus_allowed:
+		free_cpumask_var(in_mask);
+	out_free_cpus_allowed:
+		free_cpumask_var(cpus_allowed);
+	out_put_task:
+		put_task_struct(p);
+
+	
+	
+	}else{
+		
+		retval = -ENOMEM;
+	}
+	return retval;
+}
+
+
+char* return_policy_checker(void){
+
+	cpumask_var_t in_mask;
+	int i;
+	char msg[100];
+
+	alloc_cpumask_var(&in_mask, GFP_KERNEL);
+
+	for_each_possible_cpu(i){
+	if (per_cpu(policy_checker, i) == 1)
+		cpumask_set_cpu(i, in_mask);
+	else
+		cpumask_clear_cpu(i, in_mask);
+	}
+
+	cpumask_scnprintf(msg, sizeof(msg), in_mask);
+	free_cpumask_var(in_mask);
+
+	return msg;
+
+
 }

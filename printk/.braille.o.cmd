@@ -1,4 +1,4 @@
-cmd_kernel/printk/braille.o := gcc -Wp,-MD,kernel/printk/.braille.o.d  -nostdinc -isystem /opt/gccbin/bin/../lib/gcc/i686-pc-linux-gnu/4.4.5/include -I/home/abhijith/project/code/arch/x86/include -Iarch/x86/include/generated  -Iinclude -I/home/abhijith/project/code/arch/x86/include/uapi -Iarch/x86/include/generated/uapi -I/home/abhijith/project/code/include/uapi -Iinclude/generated/uapi -include /home/abhijith/project/code/include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -mno-mmx -mno-sse -fno-pic -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -Wframe-larger-than=1024 -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack   -fno-tree-scev-cprop -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(braille)"  -D"KBUILD_MODNAME=KBUILD_STR(braille)" -c -o kernel/printk/.tmp_braille.o kernel/printk/braille.c
+cmd_kernel/printk/braille.o := gcc -Wp,-MD,kernel/printk/.braille.o.d  -nostdinc -isystem /opt/gccbin/bin/../lib/gcc/i686-pc-linux-gnu/4.4.5/include -I/home/bossmool/mool-3.12.23-32-core-working/arch/x86/include -Iarch/x86/include/generated  -Iinclude -I/home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi -Iarch/x86/include/generated/uapi -I/home/bossmool/mool-3.12.23-32-core-working/include/uapi -Iinclude/generated/uapi -include /home/bossmool/mool-3.12.23-32-core-working/include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -mno-mmx -mno-sse -fno-pic -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -Wframe-larger-than=1024 -fomit-frame-pointer -g -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack   -fno-tree-scev-cprop -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(braille)"  -D"KBUILD_MODNAME=KBUILD_STR(braille)" -c -o kernel/printk/.tmp_braille.o kernel/printk/braille.c
 
 source_kernel/printk/braille.o := kernel/printk/braille.c
 
@@ -31,7 +31,7 @@ deps_kernel/printk/braille.o := \
     $(wildcard include/config/modules.h) \
     $(wildcard include/config/modversions.h) \
     $(wildcard include/config/unused/symbols.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/linkage.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/linkage.h \
     $(wildcard include/config/x86/32.h) \
     $(wildcard include/config/x86/64.h) \
     $(wildcard include/config/x86/alignment/16.h) \
@@ -50,62 +50,62 @@ deps_kernel/printk/braille.o := \
   include/asm-generic/bitsperlong.h \
   include/uapi/asm-generic/bitsperlong.h \
   include/linux/posix_types.h \
-  /home/abhijith/project/code/arch/x86/include/asm/posix_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/posix_types.h \
   include/asm/posix_types_32.h \
   include/asm-generic/posix_types.h \
   include/linux/bitops.h \
-  /home/abhijith/project/code/arch/x86/include/asm/bitops.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/bitops.h \
     $(wildcard include/config/x86/cmov.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/alternative.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/alternative.h \
     $(wildcard include/config/smp.h) \
     $(wildcard include/config/paravirt.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/asm.h \
-  /home/abhijith/project/code/arch/x86/include/asm/ptrace.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/asm.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/ptrace.h \
     $(wildcard include/config/x86/debugctlmsr.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/segment.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/segment.h \
     $(wildcard include/config/cc/stackprotector.h) \
     $(wildcard include/config/x86/32/lazy/gs.h) \
   include/linux/const.h \
-  /home/abhijith/project/code/arch/x86/include/asm/page_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/page_types.h \
     $(wildcard include/config/physical/start.h) \
     $(wildcard include/config/physical/align.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/page_32_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/page_32_types.h \
     $(wildcard include/config/highmem4g.h) \
     $(wildcard include/config/highmem64g.h) \
     $(wildcard include/config/page/offset.h) \
     $(wildcard include/config/x86/pae.h) \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/ptrace.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/ptrace.h \
   include/asm/ptrace-abi.h \
-  /home/abhijith/project/code/arch/x86/include/asm/processor-flags.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/processor-flags.h \
     $(wildcard include/config/vm86.h) \
-  /home/abhijith/project/code/arch/x86/include/uapi/asm/processor-flags.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi/asm/processor-flags.h \
   include/linux/init.h \
     $(wildcard include/config/broken/rodata.h) \
     $(wildcard include/config/cxx/runtime.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/paravirt_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/paravirt_types.h \
     $(wildcard include/config/x86/local/apic.h) \
     $(wildcard include/config/paravirt/debug.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/desc_defs.h \
-  /home/abhijith/project/code/arch/x86/include/asm/kmap_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/desc_defs.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/kmap_types.h \
     $(wildcard include/config/debug/highmem.h) \
   include/asm-generic/kmap_types.h \
-  /home/abhijith/project/code/arch/x86/include/asm/pgtable_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pgtable_types.h \
     $(wildcard include/config/kmemcheck.h) \
     $(wildcard include/config/mem/soft/dirty.h) \
     $(wildcard include/config/compat/vdso.h) \
     $(wildcard include/config/proc/fs.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/pgtable_32_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pgtable_32_types.h \
     $(wildcard include/config/highmem.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/pgtable-3level_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/pgtable-3level_types.h \
   include/asm-generic/pgtable-nopud.h \
-  /home/abhijith/project/code/arch/x86/include/asm/spinlock_types.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/spinlock_types.h \
     $(wildcard include/config/paravirt/spinlocks.h) \
     $(wildcard include/config/nr/cpus.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/rwlock.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/rwlock.h \
   include/asm-generic/ptrace.h \
-  /home/abhijith/project/code/arch/x86/include/asm/cpufeature.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/cpufeature.h \
     $(wildcard include/config/x86/debug/static/cpu/has.h) \
-  /home/abhijith/project/code/arch/x86/include/asm/required-features.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/required-features.h \
     $(wildcard include/config/x86/minimum/cpu/family.h) \
     $(wildcard include/config/math/emulation.h) \
     $(wildcard include/config/x86/cmpxchg64.h) \
@@ -116,7 +116,7 @@ deps_kernel/printk/braille.o := \
   include/asm-generic/bitops/find.h \
     $(wildcard include/config/generic/find/first/bit.h) \
   include/asm-generic/bitops/sched.h \
-  /home/abhijith/project/code/arch/x86/include/asm/arch_hweight.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/arch_hweight.h \
   include/asm-generic/bitops/const_hweight.h \
   include/asm-generic/bitops/le.h \
   include/asm/byteorder.h \
@@ -140,8 +140,8 @@ deps_kernel/printk/braille.o := \
   include/linux/string.h \
     $(wildcard include/config/binary/printf.h) \
   include/uapi/linux/string.h \
-  /home/abhijith/project/code/arch/x86/include/asm/string.h \
-  /home/abhijith/project/code/arch/x86/include/asm/string_32.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/string.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/string_32.h \
   include/linux/errno.h \
   include/uapi/linux/errno.h \
   include/asm/errno.h \
@@ -149,7 +149,7 @@ deps_kernel/printk/braille.o := \
   include/asm-generic/errno-base.h \
   include/uapi/linux/kernel.h \
   include/linux/sysinfo.h \
-  /home/abhijith/project/code/arch/x86/include/asm/div64.h \
+  /home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/div64.h \
   include/linux/console.h \
     $(wildcard include/config/hw/console.h) \
     $(wildcard include/config/tty.h) \

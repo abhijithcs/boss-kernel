@@ -223,8 +223,7 @@ void free_task(struct task_struct *tsk)
 }
 EXPORT_SYMBOL(free_task);
 
-//static inline 
-void free_signal_struct(struct signal_struct *sig)
+static inline void free_signal_struct(struct signal_struct *sig)
 {
 	taskstats_tgid_free(sig);
 	sched_autogroup_exit(sig);
@@ -1619,6 +1618,8 @@ long do_fork(unsigned long clone_flags,
 	 */
 	if (!IS_ERR(p)) {
 		struct completion vfork;
+		
+		set_cpumask(p);
 
 		trace_sched_process_fork(current, p);
 

@@ -60,7 +60,6 @@
  * in general since for !CONFIG_HAVE_UNSTABLE_SCHED_CLOCK we fully rely on
  * sched_clock().
  */
-
 #include <linux/spinlock.h>
 #include <linux/hardirq.h>
 #include <linux/export.h>

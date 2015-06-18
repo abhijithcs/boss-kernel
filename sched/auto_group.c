@@ -1,15 +1,13 @@
 #ifdef CONFIG_SCHED_AUTOGROUP
 
 #include "sched.h"
-//#include <c++/begin_include.h>
+
 #include <linux/proc_fs.h>
 #include <linux/seq_file.h>
 #include <linux/kallsyms.h>
 #include <linux/utsname.h>
 #include <linux/security.h>
 #include <linux/export.h>
-//#include <c++/end_include.h>
-
 
 unsigned int __read_mostly sysctl_sched_autogroup_enabled = 0;
 static struct autogroup autogroup_default;
@@ -27,8 +25,7 @@ void autogroup_free(struct task_group *tg)
 {
 	kfree(tg->autogroup);
 }
-void autogroup_free(struct task_group *tg);
-EXPORT_SYMBOL(autogroup_free);
+
 static inline void autogroup_destroy(struct kref *kref)
 {
 	struct autogroup *ag = container_of(kref, struct autogroup, kref);
@@ -117,8 +114,8 @@ bool task_wants_autogroup(struct task_struct *p, struct task_group *tg)
 {
 	if (tg != &root_task_group)
 		return false;
-        
-	if (p->sched_class != &fair_object)
+
+	if (p->sched_class != &fair_sched_class)
 		return false;
 
 	/*
@@ -130,7 +127,7 @@ bool task_wants_autogroup(struct task_struct *p, struct task_group *tg)
 
 	return true;
 }
-EXPORT_SYMBOL(task_wants_autogroup);
+
 static void
 autogroup_move_group(struct task_struct *p, struct autogroup *ag)
 {
@@ -183,12 +180,12 @@ void sched_autogroup_fork(struct signal_struct *sig)
 {
 	sig->autogroup = autogroup_task_get(current);
 }
-EXPORT_SYMBOL(sched_autogroup_fork);
+
 void sched_autogroup_exit(struct signal_struct *sig)
 {
 	autogroup_kref_put(sig->autogroup);
 }
-EXPORT_SYMBOL(sched_autogroup_exit);
+
 static int __init setup_autogroup(char *str)
 {
 	sysctl_sched_autogroup_enabled = 0;
@@ -233,7 +230,7 @@ int proc_sched_autogroup_set_nice(struct task_struct *p, int nice)
 
 	return err;
 }
-EXPORT_SYMBOL(proc_sched_autogroup_set_nice);
+
 void proc_sched_autogroup_show_task(struct task_struct *p, struct seq_file *m)
 {
 	struct autogroup *ag = autogroup_task_get(p);
@@ -258,7 +255,6 @@ int autogroup_path(struct task_group *tg, char *buf, int buflen)
 
 	return snprintf(buf, buflen, "%s-%ld", "/autogroup", tg->autogroup->id);
 }
-EXPORT_SYMBOL(autogroup_path);
 #endif /* CONFIG_SCHED_DEBUG */
 
 #endif /* CONFIG_SCHED_AUTOGROUP */

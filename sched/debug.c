@@ -9,13 +9,13 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  */
-//#include <c++/begin_include.h>
+
 #include <linux/proc_fs.h>
 #include <linux/sched.h>
 #include <linux/seq_file.h>
 #include <linux/kallsyms.h>
 #include <linux/utsname.h>
-//#include <c++/end_include.h>
+
 #include "sched.h"
 
 static DEFINE_SPINLOCK(sched_debug_lock);
@@ -415,8 +415,7 @@ void sysrq_sched_debug_show(void)
 		print_cpu(NULL, cpu);
 
 }
-void sysrq_sched_debug_show(void);
-EXPORT_SYMBOL(sysrq_sched_debug_show);
+
 /*
  * This itererator needs some explanation.
  * It returns 1 for the header position.

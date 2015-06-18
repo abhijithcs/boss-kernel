@@ -1,4 +1,4 @@
-#include <c++/begin_include.h>
+
 #include <linux/sched.h>
 #include <linux/sched/sysctl.h>
 #include <linux/sched/rt.h>
@@ -6,9 +6,9 @@
 #include <linux/spinlock.h>
 #include <linux/stop_machine.h>
 #include <linux/tick.h>
+
 #include "cpupri.h"
 #include "cpuacct.h"
-#include <c++/end_include.h>
 
 struct rq;
 
@@ -16,9 +16,9 @@ extern __read_mostly int scheduler_running;
 
 extern unsigned long calc_load_update;
 extern atomic_long_t calc_load_tasks;
+
 extern long calc_load_fold_active(struct rq *this_rq);
 extern void update_cpu_load_active(struct rq *this_rq);
-
 
 /*
  * Convert user-nice values [ -20 ... 0 ... 19 ]
@@ -111,9 +111,9 @@ struct rt_bandwidth {
 extern struct mutex sched_domains_mutex;
 
 #ifdef CONFIG_CGROUP_SCHED
-#include <c++/begin_include.h>
+
 #include <linux/cgroup.h>
-#include <c++/end_include.h>
+
 struct cfs_rq;
 struct rt_rq;
 
@@ -215,7 +215,7 @@ extern void init_tg_cfs_entry(struct task_group *tg, struct cfs_rq *cfs_rq,
 			struct sched_entity *se, int cpu,
 			struct sched_entity *parent);
 extern void init_cfs_bandwidth(struct cfs_bandwidth *cfs_b);
-
+extern int sched_group_set_shares(struct task_group *tg, unsigned long shares);
 
 extern void __refill_cfs_bandwidth_runtime(struct cfs_bandwidth *cfs_b);
 extern void __start_cfs_bandwidth(struct cfs_bandwidth *cfs_b);
@@ -226,26 +226,14 @@ extern int alloc_rt_sched_group(struct task_group *tg, struct task_group *parent
 extern void init_tg_rt_entry(struct task_group *tg, struct rt_rq *rt_rq,
 		struct sched_rt_entity *rt_se, int cpu,
 		struct sched_rt_entity *parent);
-#ifdef __cplusplus
-extern "C" int sched_group_set_shares(struct task_group *tg, unsigned long shares);
-
-extern "C" struct task_group *sched_create_group(struct task_group *parent);
-extern "C" void sched_online_group(struct task_group *tg,
-			       struct task_group *parent);
-extern "C" void sched_destroy_group(struct task_group *tg);
-extern "C" void sched_offline_group(struct task_group *tg);
-extern "C"  void sched_move_task(struct task_struct *tsk);
-#else
-extern int sched_group_set_shares(struct task_group *tg, unsigned long shares);
 
 extern struct task_group *sched_create_group(struct task_group *parent);
 extern void sched_online_group(struct task_group *tg,
 			       struct task_group *parent);
-
-extern void sched_offline_group(struct task_group *tg);
 extern void sched_destroy_group(struct task_group *tg);
+extern void sched_offline_group(struct task_group *tg);
+
 extern void sched_move_task(struct task_struct *tsk);
-#endif
 
 #ifdef CONFIG_FAIR_GROUP_SCHED
 extern int sched_group_set_shares(struct task_group *tg, unsigned long shares);
@@ -973,7 +961,7 @@ static const u32 prio_to_wmult[40] = {
 #endif
 
 #define DEQUEUE_SLEEP		1
-/*
+
 struct sched_class {
 	const struct sched_class *next;
 
@@ -1020,10 +1008,9 @@ struct sched_class {
 #endif
 };
 
-*/
-#define sched_class_highest (&stop_object)
-//#define for_each_class(classx) \
- //  for (classx = sched_class_highest; classx; classx = class->next)
+#define sched_class_highest (&stop_sched_class)
+#define for_each_class(class) \
+   for (class = sched_class_highest; class; class = class->next)
 
 extern const struct sched_class stop_sched_class;
 extern const struct sched_class rt_sched_class;
@@ -1048,13 +1035,8 @@ static inline void idle_balance(int cpu, struct rq *rq)
 }
 
 #endif
-#ifdef __cplusplus
-extern "C" void sysrq_sched_debug_show(void);
-#else
-extern void sysrq_sched_debug_show(void);
-#endif
-extern void update_idle_cpu_load(struct rq *this_rq);
 
+extern void sysrq_sched_debug_show(void);
 extern void sched_init_granularity(void);
 extern void update_max_interval(void);
 extern void init_sched_rt_class(void);
@@ -1066,7 +1048,7 @@ extern void resched_cpu(int cpu);
 extern struct rt_bandwidth def_rt_bandwidth;
 extern void init_rt_bandwidth(struct rt_bandwidth *rt_b, u64 period, u64 runtime);
 
-
+extern void update_idle_cpu_load(struct rq *this_rq);
 
 extern void init_task_runnable_average(struct task_struct *p);
 
@@ -1111,8 +1093,8 @@ extern void update_rq_clock(struct rq *rq);
 
 extern void activate_task(struct rq *rq, struct task_struct *p, int flags);
 extern void deactivate_task(struct rq *rq, struct task_struct *p, int flags);
-extern void check_preempt_curr(struct rq *rq, struct task_struct *p, int flags);
 
+extern void check_preempt_curr(struct rq *rq, struct task_struct *p, int flags);
 
 extern const_debug unsigned int sysctl_sched_time_avg;
 extern const_debug unsigned int sysctl_sched_nr_migrate;
@@ -1151,9 +1133,7 @@ static inline int hrtick_enabled(struct rq *rq)
 #endif /* CONFIG_SCHED_HRTICK */
 
 #ifdef CONFIG_SMP
-
 extern void sched_avg_update(struct rq *rq);
-
 static inline void sched_rt_avg_update(struct rq *rq, u64 rt_delta)
 {
 	rq->rt_avg += rt_delta;
@@ -1319,20 +1299,10 @@ static inline void double_rq_unlock(struct rq *rq1, struct rq *rq2)
 
 #endif
 
-#ifdef __cplusplus
-extern "C" struct sched_entity *__pick_first_entity(struct cfs_rq *cfs_rq);
-extern "C" struct sched_entity *__pick_last_entity(struct cfs_rq *cfs_rq);
-extern "C"void print_cfs_stats(struct seq_file *m, int cpu);
-extern "C" void print_rt_stats(struct seq_file *m, int cpu);
-
-#else
-
 extern struct sched_entity *__pick_first_entity(struct cfs_rq *cfs_rq);
 extern struct sched_entity *__pick_last_entity(struct cfs_rq *cfs_rq);
 extern void print_cfs_stats(struct seq_file *m, int cpu);
 extern void print_rt_stats(struct seq_file *m, int cpu);
-
-#endif
 
 extern void init_cfs_rq(struct cfs_rq *cfs_rq);
 extern void init_rt_rq(struct rt_rq *rt_rq, struct rq *rq);

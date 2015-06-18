@@ -3,18 +3,19 @@
 #	compiled by GNU C version 4.4.5, GMP version 4.3.2, MPFR version 2.4.2.
 # GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 # options passed:  -nostdinc
-# -I/home/abhijith/project/kernel-btp/arch/x86/include
+# -I/home/bossmool/mool-3.12.23-32-core-working/arch/x86/include
 # -Iarch/x86/include/generated -Iinclude
-# -I/home/abhijith/project/kernel-btp/arch/x86/include/uapi
+# -I/home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/uapi
 # -Iarch/x86/include/generated/uapi
-# -I/home/abhijith/project/kernel-btp/include/uapi -Iinclude/generated/uapi
-# -iprefix /opt/gccbin/bin/../lib/gcc/i686-pc-linux-gnu/4.4.5/ -D__KERNEL__
+# -I/home/bossmool/mool-3.12.23-32-core-working/include/uapi
+# -Iinclude/generated/uapi -iprefix
+# /opt/gccbin/bin/../lib/gcc/i686-pc-linux-gnu/4.4.5/ -D__KERNEL__
 # -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1
 # -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1
 # -DKBUILD_STR(s)=#s -DKBUILD_BASENAME=KBUILD_STR(bounds)
 # -DKBUILD_MODNAME=KBUILD_STR(bounds) -isystem
 # /opt/gccbin/bin/../lib/gcc/i686-pc-linux-gnu/4.4.5/include -include
-# /home/abhijith/project/kernel-btp/include/linux/kconfig.h -MD
+# /home/bossmool/mool-3.12.23-32-core-working/include/linux/kconfig.h -MD
 # kernel/.bounds.s.d kernel/bounds.c -m32 -msoft-float -mregparm=3
 # -mpreferred-stack-boundary=2 -march=i686 -mtune=generic
 # -maccumulate-outgoing-args -mno-sse -mno-mmx -mno-sse2 -mno-3dnow
@@ -97,7 +98,7 @@ foo:
 .Letext0:
 	.file 2 "include/linux/page-flags.h"
 	.file 3 "include/linux/mmzone.h"
-	.file 4 "/home/abhijith/project/kernel-btp/arch/x86/include/asm/page_types.h"
+	.file 4 "/home/bossmool/mool-3.12.23-32-core-working/arch/x86/include/asm/page_types.h"
 	.file 5 "include/linux/printk.h"
 	.file 6 "include/linux/kernel.h"
 	.file 7 "include/linux/page_cgroup.h"
@@ -618,10 +619,10 @@ foo:
 	.string	"PG_lru"
 .LASF19:
 	.string	"PG_owner_priv_1"
+.LASF30:
+	.string	"PG_swapbacked"
 .LASF3:
 	.string	"short unsigned int"
-.LASF55:
-	.string	"hex_asc"
 .LASF42:
 	.string	"pageflags"
 .LASF49:
@@ -654,8 +655,8 @@ foo:
 	.string	"PG_tail"
 .LASF2:
 	.string	"short int"
-.LASF59:
-	.string	"/home/abhijith/project/kernel-btp"
+.LASF55:
+	.string	"hex_asc"
 .LASF50:
 	.string	"PCG_USED"
 .LASF20:
@@ -672,8 +673,8 @@ foo:
 	.string	"signed char"
 .LASF29:
 	.string	"PG_reclaim"
-.LASF30:
-	.string	"PG_swapbacked"
+.LASF59:
+	.string	"/home/bossmool/mool-3.12.23-32-core-working"
 .LASF10:
 	.string	"_Bool"
 .LASF32:

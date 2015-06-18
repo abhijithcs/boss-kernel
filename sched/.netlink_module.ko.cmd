@@ -1,0 +1,1 @@
+cmd_kernel/sched/netlink_module.ko := ld  -nostdlib -nodefaultlibs -nostartfiles -r -m elf_i386 -T /home/bossmool/mool-3.12.23-32-core-working/scripts/module-common.lds --build-id -r -o kernel/sched/netlink_module.ko kernel/sched/netlink_module.o kernel/sched/netlink_module.mod.o
